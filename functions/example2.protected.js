@@ -20,11 +20,11 @@ exports.handler = async function(context, event, callback){
 
         const data = await resp.json();
         
-        const ciudad = `${data.location.name}, ${data.location.country}`;
+        const city = `${data.location.name}, ${data.location.country}`;
         const tempC = `${data.current.temp_c} °C`;
 
         response.setStatusCode(200).setBody({weather:{
-            city: ciudad,
+            city,
             temperature: tempC,
             condition: data.current.condition.text,
             actualLocaltime: data.location.localtime 
